@@ -1,16 +1,16 @@
-﻿# Projeto_Calculadora (H4)
-# Calculadora Simples em Python (H5)
+﻿## Projeto_Calculadora
+### Calculadora Simples em Python
 
-# Calculadora com interface gráfica desenvolvida em Python utilizando a biblioteca Tkinter. (H5)
+### Calculadora com interface gráfica desenvolvida em Python utilizando a biblioteca Tkinter.
 
-# Funcionalidades (H5)
-# Soma (H6)
-# Subtração (H6)
-# Multiplicação (H6)
-# Divisão (H6)
-# Resto da divisão (H6)
-# Limpar tela (H6)
+### Funcionalidades
+#### Soma
+#### Subtração
+#### Multiplicação
+#### Divisão
+#### Resto da divisão
+#### Limpar tela
 
-# Tecnologias (H5)
-# Python 3 (H6)
-# Tkinter (H6)
+### Tecnologias
+#### Python 3
+#### Tkinter
