@@ -1,24 +1,26 @@
-# 🧮 Projeto Calculadora
+# Projeto Calculadora
 
-Uma calculadora simples com interface gráfica desenvolvida em **Python** utilizando a biblioteca **Tkinter**.
+Calculadora com interface gráfica desenvolvida em **Python** utilizando **Tkinter**.
 
-## ✨ Funcionalidades
+## Funcionalidades
 
--  Soma
--  Subtração
--  Multiplicação
--  Divisão
--  Resto da divisão
--  Limpar tela
+* Soma
+* Subtração
+* Multiplicação
+* Divisão
+* Resto da divisão
+* Limpar tela
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias
 
-- Python 3
-- Tkinter
+* Python 3
+* Tkinter
 
-## 🚀 Como Executar
+## Como executar
 
-1. Certifique-se de ter o Python 3 instalado.
-2. Clone este repositório:
-   ```bash
-   git clone https://github.com/Projetos/Projeto_Calculadora.git
+1. Tenha o **Python 3** instalado.
+2. Clone o repositório:
+
+```bash
+git clone https://github.com/Projetos/Projeto_Calculadora.git
+```
