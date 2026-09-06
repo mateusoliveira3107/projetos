@@ -21,4 +21,4 @@ Uma calculadora simples com interface gráfica desenvolvida em **Python** utiliz
 1. Certifique-se de ter o Python 3 instalado.
 2. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/Projeto_Calculadora.git
+   git clone https://github.com/Projetos/Projeto_Calculadora.git
