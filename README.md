@@ -7,7 +7,7 @@ Este repositório/diretório armazena meus projetos de desenvolvimento, estudos 
 Cada pasta neste diretório representa um projeto independente:
 
 * `projeto/calculadoraPython` - Calculadora simples com interface em python
-* * `projeto/calculadoraNotas` - Calculadora de quantidade de notas para um determinado valor com HTML e JavaScript
+* `projeto/calculadoraNotas` - Calculadora de quantidade de notas para um determinado valor com HTML e JavaScript
 
 ## 🛠️ Tecnologias Comuns
 
