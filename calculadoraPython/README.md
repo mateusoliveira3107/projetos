@@ -19,8 +19,13 @@ Calculadora com interface gráfica desenvolvida em **Python** utilizando **Tkint
 ## Como executar
 
 1. Tenha o **Python 3** instalado.
-2. Clone o repositório:
+2. Clone o repositório. Execute o comando abaixo para baixar a raiz do projeto:
 
 ```bash
-https://github.com/mateusoliveira3107/projetos/calculadoraPython.git
+git clone https://github.com/mateusoliveira3107/projetos.git
+```
+
+3. Entre na pasta raiz e navegue até o diretório onde este projeto está salvo
+```bash
+cd projetos/calculadoraPython
 ```
