@@ -15,10 +15,13 @@ Calculadora de quantidade de notas para um determinado valor desenvolvida com **
 
 ## Como executar
 
-1. Clone o repositório:
+1. Clone o repositório. Execute o comando abaixo para baixar a raiz do projeto:
 
 ```bash
-git clone https://github.com/Projetos/calculadoraNotas.git
+git clone https://github.com/mateusoliveira3107/projetos.git
 ```
 
-2. Abra a pasta do projeto no seu editor de código (como o VSCode), ou abra o arquivo index.html diretamente no seu navegador de preferência, ou utilize a extensão Live Server para visualizar a aplicação.
+2. Entre na pasta raiz e navegue até o diretório onde este projeto está salvo
+```bash
+cd projetos/calculadoraNotas
+```
