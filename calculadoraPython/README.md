@@ -22,5 +22,5 @@ Calculadora com interface gráfica desenvolvida em **Python** utilizando **Tkint
 2. Clone o repositório:
 
 ```bash
-git clone https://github.com/Projetos/Projeto_Calculadora.git
+https://github.com/mateusoliveira3107/projetos/calculadoraPython.git
 ```
