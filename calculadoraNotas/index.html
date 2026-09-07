@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Notas</h1>
+        <h2 id="subtitulo">Transformação de um valor em reais para uma quantidade de notas</h2>        
+    </header>
+    <main>
+        <section>
+            <p>Insira um valor para saber a quantidade em notas:</p>
+            <input type="text" id="valorInserido" placeholder="Ex: 120">
+
+            <button onclick="calcularSaque()">calcular</button>
+
+            <p>Resultado</p>
+            <p id="notas50">Notas de 50: </p>
+            <p id="notas20">Notas de 20: </p>
+            <p id="notas10">Notas de 10: </p>
+        </section>
+    </main>
+
+    <script src="calcularSaque.js"></script>
+</body>
+</html>

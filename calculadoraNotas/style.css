@@ -1,0 +1,35 @@
+h1 {
+    font-size: 34px;
+}
+#subtitulo {
+    font-size: 19px;
+}
+header {
+    text-align: center;
+    background-color: rgb(183, 183, 183);
+    padding: 10px;
+    border-style: solid;
+    border-color: rgb(91, 91, 91);
+    border-width: 2.5px;
+    padding-top: 0;
+}
+p {
+    font-size: 17px;
+}
+button {
+    height: 33px;
+    width:75px;
+    background-color: rgb(158, 157, 157);
+}
+input {
+    height: 30px;
+    background-color: rgb(243, 243, 243);
+}
+section {
+    background-color: rgb(183, 183, 183);
+    padding: 15px;
+    margin-top: 5px;
+    border-style: solid;
+    border-color: rgb(91, 91, 91);
+    border-width: 2.5px;
+}
