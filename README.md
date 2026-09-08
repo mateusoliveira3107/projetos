@@ -8,6 +8,7 @@ Cada pasta neste diretório representa um projeto independente:
 
 * `projeto/calculadoraPython` - Calculadora simples com interface em python
 * `projeto/calculadoraNotas` - Calculadora de quantidade de notas para um determinado valor com HTML e JavaScript
+* `projeto/cafeteriaMateus` -  - Sistema de cafeteria com interface web (HTML, CSS e JavaScript)
 
 ## 🛠️ Tecnologias Comuns
 
