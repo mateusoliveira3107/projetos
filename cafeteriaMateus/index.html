@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria Mateus</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="titulo">Cafeteria Mateus</h1>
+        <p id="subtitulo">Seu café favorito está aqui!</p>
+        <p id="bemVindo">bem-vindo</p>
+        <button id="botaoMudarCor">Mudar Cor</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>Nossos Produtos</h2>
+            <ul>
+                <li>
+                    <span>Café Expresso - R$ 5,00</span>
+                    <button data-produto="Café Expresso">Adicionar</button>
+                </li>
+                <li>
+                    <span>Capuccino - R$ 8,00</span>
+                    <button data-produto="Capuccino">Adicionar</button>
+                </li>
+                <li>
+                    <span>Bolo - R$ 12,00</span>
+                    <button data-produto="Bolo">Adicionar</button>
+                </li>
+                <li>
+                    <span>Salgado - R$ 9,00</span>
+                    <button data-produto="Salgado">Adicionar</button>
+                </li> 
+            </ul>
+
+        </section>
+
+        <section>
+            <h2>Seu Carrinho</h2>
+            <p id="carrinho">Nenhum produto adicionado</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
