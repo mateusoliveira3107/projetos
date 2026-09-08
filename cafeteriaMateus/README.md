@@ -41,9 +41,6 @@ O projeto está sendo desenvolvido de forma gradual, adicionando novas funcional
 
 ## Próximos passos
 
-* Adicionar quantidade dos produtos
-* Calcular o valor total do carrinho
-* Permitir remover produtos
 * Melhorar a interface
 * Criar formulário para finalizar o pedido
 * Adicionar navegação entre páginas

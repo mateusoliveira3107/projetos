@@ -28,7 +28,8 @@ section {
 }
 
 h2 {
-    color: rgba(65, 34, 21, 0.948);
+    color: rgba(51, 28, 18, 0.948);
+    font-size: 25px;
 }
 
 button {
@@ -42,4 +43,30 @@ button {
     margin: 10px;
     height: 30px;
     width: 90px;
+    background-color: rgb(175, 89, 20, 0.857);
+}
+
+#carrinho {
+    white-space: pre-line;
+}
+
+.botaoLimpar {
+    width: 120px;
+    height: 32px;
+    background-color: rgba(175, 89, 20, 0.857);
+}
+
+.botaoAdicionar {
+    background-color: rgb(53, 123, 30);
+    color: white;
+    font-weight: bold;
+}
+
+.botaoRemover {
+    background-color: rgba(147, 17, 3, 0.893);
+    color: white;
+}
+
+#total {
+    font-weight: bold;
 }

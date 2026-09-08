@@ -5,31 +5,172 @@ titulo.style.fontSize = "40px";
 titulo.style.color = "#6d1a0a"
 
 const bemVindo = document.getElementById('bemVindo');
-bemVindo.textContent = "Seja Bem-Vindo à Cafeteria Mateus!"
+bemVindo.textContent = "Seja Bem-Vindo à Cafeteria Mateus!";
 
 // Carrinho
 const carrinho = document.getElementById('carrinho');
+// Total
+const total = document.getElementById('total');
 
 // Dando função para os botões
 const botoes = document.querySelectorAll('button[data-produto]');
 
-const produtosCarrinho = [];
+// limpar o carrinho
+const limparCarrinho = document.getElementById('limparCarrinho');
 
+// array do carrinho e produtos como objetos
+    const produto1 = {
+        nome: "Café Expresso", preco: 5, quantidade: 0
+    };
+    const produto2 = {
+        nome: "Capuccino", preco: 8, quantidade: 0
+    };
+    const produto3 = {
+        nome: "Bolo", preco: 12, quantidade: 0
+    };
+    const produto4 = {
+        nome: "Salgado", preco: 9, quantidade: 0
+    };
+
+const produtosCarrinho = [
+    produto1,
+    produto2,
+    produto3,
+    produto4
+];
+
+// const bolo = produtosCarrinho.find(function(produto) {
+//     return produto.nome === "Bolo";
+// });
+
+// console.log(bolo.preco);
+// bolo.quantidade += 1;
+
+// procurando café com find(), mudando e exibindo os atributos
+// const cafe = produtosCarrinho.find(function(produto) {
+//     return produto.nome === "Café Expresso";
+// });
+// console.log(`Preço do café: R$${cafe.preco}`);
+// cafe.quantidade += 1;
+// console.log(`Quantidade: ${cafe.quantidade}`);
+
+// const salgado = produtosCarrinho.find(function(produto) {
+//     return produto.nome === "Salgado";
+// });
+// console.log(`Preço do salgado: R$${salgado.preco}`);
+// salgado.quantidade += 2;
+// console.log(`Quantidade: ${salgado.quantidade}`);
+
+
+// função para adicionar produtos ao array
+function adicionarProduto(p, qntd) {
+    const produtoEscolhido = produtosCarrinho.find(function(produto) {
+        return produto.nome === p;  // Só vai retornar o produto que tiver nome igual ao p (o que a pessoa inseriu na função);
+    });
+    if (produtoEscolhido) {
+        produtoEscolhido.quantidade += qntd;
+        console.log(`Você adicionou ${p}`);
+    } else {
+        console.log("Produto não encontrado");
+    };
+};
+
+// adicionarProduto("Bolo", 2);
+// adicionarProduto("Salgado", 5);
+// adicionarProduto("Café Expresso", 3);
+// adicionarProduto("Pizza", 2);
+
+// Função para remover produtos
+function removerProduto(p, qntd) {
+    const produtoRemover = produtosCarrinho.find(function(produto) {
+        return produto.nome === p;
+    });
+    if (produtoRemover) {
+        if (produtoRemover.quantidade - qntd >= 0) {
+            produtoRemover.quantidade -= qntd;
+            console.log(`Você removeu ${p}`);
+        } else {
+            console.log(`Quantidade insuficiente de ${p} no carrinho`)
+        }
+    } else {
+        console.log("Produto não encontrado")
+    };
+}
+
+// Função para mostrar nome e quantidade de cada produto no carrinho
+function mostrarCarrinho(produtos) {
+    let encontrouProduto = false;
+    carrinho.textContent = ""
+
+    for (let i = 0; i < produtos.length; i++){
+        if (produtos[i].quantidade > 0) {
+            encontrouProduto = true;
+            
+            // mostrar no terminal
+            console.log(`${produtos[i].nome} x${produtos[i].quantidade}`);
+
+            // mostrar no HTML
+            carrinho.textContent += `${produtos[i].nome} x${produtos[i].quantidade} - R$${(produtos[i].quantidade * produtos[i].preco).toFixed(2)}\n`
+        }
+    }
+    if (encontrouProduto === false) {
+        carrinho.textContent = "Nenhum Produto Adicionado";
+    };
+};
+
+// Função para calcular valor total de acordo com a quantidade e preco dos produtos
+function calcularTotal(produtos) {
+    let total = 0;
+    for (let i = 0; i < produtos.length; i++) {
+        if (produtos[i].quantidade > 0) {
+            const precoProduto = produtos[i].quantidade * produtos[i].preco;
+            total += precoProduto;
+        };
+    };
+    return total;
+};
+
+function atualizarCarrinho(produtos) {
+    mostrarCarrinho(produtos);
+    const valorTotal = calcularTotal(produtos);
+
+    total.textContent = `Total: R$${valorTotal.toFixed(2)}`
+    console.log(`Valor Total: R$${valorTotal}`);
+}
+
+// limpar carrinho
+limparCarrinho.addEventListener("click", function() {
+    for(let i = 0; i < produtosCarrinho.length; i++) {
+        produtosCarrinho[i].quantidade = 0;
+    };
+    atualizarCarrinho(produtosCarrinho);
+});
+
+// atualizarCarrinho(produtosCarrinho);
+
+// Função para os botões escreverem na tela do html e mostrarem o produto no console/terminal
 for (let i = 0; i < botoes.length; i++) {
     botoes[i].addEventListener("click", function() {
         const produto = botoes[i].dataset.produto;
-        produtosCarrinho.push(produto);
+        const acao = this.textContent;
+        if (acao === "Adicionar") {
+            adicionarProduto(produto, 1);
+        } else if (acao === "Remover") {
+            removerProduto(produto, 1);
+        } else {
+            console.log("Valor Inválido")
+        }
 
-        console.log(`Você adicionou ${produto}`);
+        atualizarCarrinho(produtosCarrinho)
         
-        carrinho.textContent = produtosCarrinho.join(" | ");
+        // carrinho.textContent = produtosCarrinho.join(" | ");
 
-        console.log(produtosCarrinho);
+        // console.log(`Produtos: ${produtosCarrinho}`);
     });
 };
-
+        
 // Dando ao botão cor a função de mudar a cor do título
 const botaoCor = document.getElementById('botaoMudarCor');
 botaoCor.addEventListener("click", function() {
     titulo.style.color = "red";
-})
+});
