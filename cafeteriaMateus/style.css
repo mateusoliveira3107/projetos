@@ -15,6 +15,7 @@ header {
     border-radius: 4px;
     border-color: rgb(77, 49, 34);
     border-style: solid;
+    height: 250px;
 }
 
 section {
@@ -27,6 +28,9 @@ section {
     margin-top: 4px;
 }
 
+li {
+
+}
 h2 {
     color: rgba(51, 28, 18, 0.948);
     font-size: 25px;
@@ -43,7 +47,7 @@ button {
     margin: 10px;
     height: 30px;
     width: 90px;
-    background-color: rgb(175, 89, 20, 0.857);
+    background-color: rgb(175, 89, 20);
 }
 
 #carrinho {
@@ -53,7 +57,7 @@ button {
 .botaoLimpar {
     width: 120px;
     height: 32px;
-    background-color: rgba(175, 89, 20, 0.857);
+    background-color: rgba(175, 89, 20);
 }
 
 .botaoAdicionar {
@@ -69,4 +73,16 @@ button {
 
 #total {
     font-weight: bold;
+}
+
+#botaoFinalizar {
+    height: 40px;
+    width: 130px;
+    border-radius: 4px;
+    border-style: groove;
+    border-width: 3px;
+    border-color: rgb(139, 70, 0);
+    background-color: rgb(245, 168, 36);
+    font-weight: bold;
+    font-size: 14px;
 }

@@ -1,3 +1,5 @@
+// Algumas partes do código foram mantidas como comentário apenas para testes e não fazem parte do sistema
+
 // Testando alterações no código
 const titulo = document.getElementById('titulo');
 titulo.textContent = "Cafeteria Mateus  ☕";
@@ -17,6 +19,9 @@ const botoes = document.querySelectorAll('button[data-produto]');
 
 // limpar o carrinho
 const limparCarrinho = document.getElementById('limparCarrinho');
+
+// botão finalizar pedido
+const botaoFinalizar = document.getElementById('botaoFinalizar');
 
 // array do carrinho e produtos como objetos
     const produto1 = {
@@ -70,8 +75,10 @@ function adicionarProduto(p, qntd) {
     if (produtoEscolhido) {
         produtoEscolhido.quantidade += qntd;
         console.log(`Você adicionou ${p}`);
+        return true;
     } else {
         console.log("Produto não encontrado");
+        return false;
     };
 };
 
@@ -89,13 +96,16 @@ function removerProduto(p, qntd) {
         if (produtoRemover.quantidade - qntd >= 0) {
             produtoRemover.quantidade -= qntd;
             console.log(`Você removeu ${p}`);
+            return true;
         } else {
-            console.log(`Quantidade insuficiente de ${p} no carrinho`)
+            console.log(`Quantidade insuficiente de ${p} no carrinho`);
+            return false;
         }
     } else {
-        console.log("Produto não encontrado")
+        console.log("Produto não encontrado");
+        return false;
     };
-}
+};
 
 // Função para mostrar nome e quantidade de cada produto no carrinho
 function mostrarCarrinho(produtos) {
@@ -146,6 +156,20 @@ limparCarrinho.addEventListener("click", function() {
     atualizarCarrinho(produtosCarrinho);
 });
 
+// finalizar pedido
+botaoFinalizar.addEventListener("click", function() {
+    const valorCarrinho = calcularTotal(produtosCarrinho)
+    if (valorCarrinho === 0) {
+        carrinho.textContent = "Carrinho vazio"
+    } else {
+        for (let produto of produtosCarrinho) {
+            produto.quantidade = 0;
+        }
+        atualizarCarrinho(produtosCarrinho);
+        carrinho.textContent = "Pedido finalizado!"
+    }
+});
+
 // atualizarCarrinho(produtosCarrinho);
 
 // Função para os botões escreverem na tela do html e mostrarem o produto no console/terminal
@@ -154,22 +178,29 @@ for (let i = 0; i < botoes.length; i++) {
         const produto = botoes[i].dataset.produto;
         const acao = this.textContent;
         if (acao === "Adicionar") {
-            adicionarProduto(produto, 1);
+            const resultado = adicionarProduto(produto, 1);
+            if (resultado === false) {
+                carrinho.textContent = ("Produto não encontrado");
+            } else {
+                atualizarCarrinho(produtosCarrinho);
+            }
         } else if (acao === "Remover") {
-            removerProduto(produto, 1);
+            const resultado = removerProduto(produto, 1);
+            if (resultado === false) {
+                carrinho.textContent = (`Quantidade insuficiente de ${produto} no carrinho`);
+            } else {
+                atualizarCarrinho(produtosCarrinho);
+            }
         } else {
-            console.log("Valor Inválido")
+            console.log("Valor Inválido");
         }
-
-        atualizarCarrinho(produtosCarrinho)
         
         // carrinho.textContent = produtosCarrinho.join(" | ");
-
         // console.log(`Produtos: ${produtosCarrinho}`);
     });
 };
         
-// Dando ao botão cor a função de mudar a cor do título
+// Criando botão com a função de mudar a cor do título
 const botaoCor = document.getElementById('botaoMudarCor');
 botaoCor.addEventListener("click", function() {
     titulo.style.color = "red";
