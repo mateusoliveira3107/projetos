@@ -23,6 +23,9 @@ const limparCarrinho = document.getElementById('limparCarrinho');
 // botão finalizar pedido
 const botaoFinalizar = document.getElementById('botaoFinalizar');
 
+// pegal elemento div 'resumo'
+const resumo = document.getElementById('resumo');
+
 // array do carrinho e produtos como objetos
     const produto1 = {
         nome: "Café Expresso", preco: 5, quantidade: 0
@@ -157,9 +160,9 @@ limparCarrinho.addEventListener("click", function() {
 
 // função para definir o valor em reais do desconto
 function definirDesconto(valor) {
-    if (valor < 70) {
+    if (valor < 50) {
         return 0;
-    } else if (valor < 120) {
+    } else if (valor < 100) {
         return valor * (10/100);
     } else {
         return valor * (15/100);
@@ -173,7 +176,9 @@ function aplicarDesconto(valor, desconto) {
 
 // Mostrar resumo dos produtos do carrinho no console
 function mostrarResumo() {
+    resumo.textContent = ""
     console.log("\n======= Resumo do Pedido =======\n");
+    resumo.innerHTML = `<h3 class="resumoPedido">Resumo do Pedido</h3>`;
     let valorTotal = 0
     for (let produto of produtosCarrinho) {
         if (produto.quantidade > 0) {
@@ -181,13 +186,24 @@ function mostrarResumo() {
             console.log(`Quantidade: ${produto.quantidade}`);
             console.log(`Subtotal: R$${(produto.quantidade * produto.preco).toFixed(2)}`);
             valorTotal += (produto.quantidade * produto.preco);
+
+            resumo.innerHTML += `<p>${produto.nome}</p>`;
+            resumo.innerHTML += `<p>Quantidade: ${produto.quantidade}</p>`;
+            resumo.innerHTML += `<p>Subtotal: R$${produto.quantidade * produto.preco}</p><br>`;
         };
     };
+
+    // resumo final no terminal
     const valorDesconto = definirDesconto(valorTotal);
     const valorFinal = aplicarDesconto(valorTotal, valorDesconto);
     console.log(`\n- Valor Total: R$${valorTotal.toFixed(2)}`);
     console.log(`- Desconto: R$${valorDesconto.toFixed(2)}`)
     console.log(`- Valor Final: R$${valorFinal.toFixed(2)}`);
+
+    // resumo final no HTML
+    resumo.innerHTML += `<p class="resumoTexto">Valor Total: R$${valorTotal.toFixed(2)}</p>`
+    resumo.innerHTML += `<p class="resumoTexto">Desconto: R$${valorDesconto.toFixed(2)}</p>`
+    resumo.innerHTML += `<p class="resumoTexto">Valor Final: R$${valorFinal.toFixed(2)}</p>`
 };
 
 // finalizar pedido
@@ -196,6 +212,10 @@ botaoFinalizar.addEventListener("click", function() {
     if (valorCarrinho === 0) {
         carrinho.textContent = "Carrinho vazio";
     } else {
+        resumo.style.backgroundColor = "rgb(149, 110, 87, 0.616)";
+        resumo.style.padding = "20px";
+        resumo.style.paddingTop = "5px";
+        resumo.style.paddingBottom = "5px";
         mostrarResumo();
         for (let produto of produtosCarrinho) {
             produto.quantidade = 0;

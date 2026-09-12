@@ -2,12 +2,14 @@ h1 {
     text-align: center;
     font-size: 34px;
     text-decoration: underline;
+    line-height: 80px;
 }
 
 #subtitulo, #bemVindo {
     font-size: 22px;
     text-align: center;
     color: rgba(33, 19, 10, 0.878);
+    line-height: 10px;
 }
 
 header {
@@ -16,7 +18,6 @@ header {
     border-radius: 4px;
     border-color: rgba(77, 49, 34, 0.746);
     border-style: solid;
-    height: 250px;
     border-width: 3px;
 }
 
@@ -25,13 +26,15 @@ section {
     padding-top: 2px;
     background-color: rgba(152, 111, 97, 0.645);
     border-radius: 4px;
+    border-width: 3px;
     border-style: solid;
-    border-color: rgb(77, 49, 34);
+    border-color: rgb(77, 49, 34, 0.746);
     margin-top: 4px;
 }
 h2 {
     color: rgba(51, 28, 18, 0.948);
-    font-size: 25px;
+    font-size: 27px;
+    line-height: 26px;
 }
 
 button {
@@ -50,6 +53,7 @@ button {
 
 #carrinho {
     white-space: pre-line;
+    font-size: 18px;
 }
 
 .botaoLimpar {
@@ -62,19 +66,28 @@ button {
     background-color: rgb(53, 123, 30);
     color: white;
     font-weight: bold;
-    border: none;
     border-radius: 3px;
+    border-bottom-width: 2.5px;
+    border-right-width: 2.5px;
+    border-color: rgba(94, 41, 26, 0.419);
+    border-left: none;
+    border-top: none;
 }
 
 .botaoRemover {
     background-color: rgba(147, 17, 3, 0.893);
     color: white;
-    border: none;
     border-radius: 3px;
+    border-bottom-width: 2.5px;
+    border-right-width: 2.5px;
+    border-color: rgba(94, 41, 26, 0.419);
+    border-left: none;
+    border-top: none;
 }
 
 #total {
     font-weight: bold;
+    font-size: 17px;
 }
 
 #botaoFinalizar {
@@ -82,22 +95,25 @@ button {
     width: 130px;
     border-radius: 4px;
     border-style: groove;
-    border-width: 3px;
+    border-width: 2px;
     border-color: rgb(139, 70, 0);
     background-color: rgb(245, 168, 36);
     font-weight: bold;
     font-size: 14px;
 }
 
-hr {
+.linhaSeparacao {
     background-color: rgb(114, 82, 65);
     border: none;
     height: 2px;
+    margin-top: 1px;
+    margin-bottom: 15px;
 }
 
 li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 7px;
     margin-bottom: 5px;
     background-color: rgba(149, 110, 87, 0.616);
@@ -105,4 +121,31 @@ li {
 } 
 ul {
     padding: 0;
+}
+
+#resumo {
+    line-height: 1px;
+    width: 300px;
+    font-size: 18px;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgba(94, 41, 26, 0.419);
+}
+
+.resumoPedido {
+    font-size: 20px;
+    color: rgba(51, 28, 18, 0.961);
+    padding-bottom: 15px;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+.resumoTexto {
+    font-weight: bold;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
 }

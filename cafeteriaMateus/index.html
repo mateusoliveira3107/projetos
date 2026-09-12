@@ -10,15 +10,16 @@
 <body>
     <header>
         <h1 id="titulo">Cafeteria Mateus</h1>
-        <p id="subtitulo">Seu café favorito está aqui!</p>
         <p id="bemVindo">bem-vindo</p>
+        <p id="subtitulo">Seu café favorito está aqui!</p>
+        
         <button id="botaoMudarCor">Mudar Cor</button>
     </header>
 
     <main>
         <section>
             <h2>Nossos Produtos</h2>
-            <hr>
+            <hr class="linhaSeparacao">
             <ul>
                 <li>
                     <span>Café Expresso - R$ 5,00</span>
@@ -45,10 +46,12 @@
 
         </section>
 
-        <section>
+        <section class="secaoCarrinho">
             <h2>Seu Carrinho</h2>
             <p id="carrinho">Nenhum Produto Adicionado</p>
             <p id="total">Total: R$0</p>
+
+            <div id="resumo"></div>
 
             <button id="botaoFinalizar">Finalizar Pedido</button>
         </section>
