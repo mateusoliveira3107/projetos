@@ -74,10 +74,10 @@ function adicionarProduto(p, qntd) {
     });
     if (produtoEscolhido) {
         produtoEscolhido.quantidade += qntd;
-        console.log(`Você adicionou ${p}`);
+        console.log(`\nVocê adicionou ${p}`);
         return true;
     } else {
-        console.log("Produto não encontrado");
+        console.log("Produto não encontrado\n");
         return false;
     };
 };
@@ -95,14 +95,14 @@ function removerProduto(p, qntd) {
     if (produtoRemover) {
         if (produtoRemover.quantidade - qntd >= 0) {
             produtoRemover.quantidade -= qntd;
-            console.log(`Você removeu ${p}`);
+            console.log(`\nVocê removeu ${p}`);
             return true;
         } else {
             console.log(`Quantidade insuficiente de ${p} no carrinho`);
             return false;
         }
     } else {
-        console.log("Produto não encontrado");
+        console.log("Produto não encontrado\n");
         return false;
     };
 };
@@ -145,7 +145,6 @@ function atualizarCarrinho(produtos) {
     const valorTotal = calcularTotal(produtos);
 
     total.textContent = `Total: R$${valorTotal.toFixed(2)}`
-    console.log(`Valor Total: R$${valorTotal}`);
 }
 
 // limpar carrinho
@@ -156,21 +155,55 @@ limparCarrinho.addEventListener("click", function() {
     atualizarCarrinho(produtosCarrinho);
 });
 
+// função para definir o valor em reais do desconto
+function definirDesconto(valor) {
+    if (valor < 70) {
+        return 0;
+    } else if (valor < 120) {
+        return valor * (10/100);
+    } else {
+        return valor * (15/100);
+    };
+};
+
+// função para aplicar desconto
+function aplicarDesconto(valor, desconto) {
+    return valor - desconto;
+};
+
+// Mostrar resumo dos produtos do carrinho no console
+function mostrarResumo() {
+    console.log("\n======= Resumo do Pedido =======\n");
+    let valorTotal = 0
+    for (let produto of produtosCarrinho) {
+        if (produto.quantidade > 0) {
+            console.log(`\n${produto.nome}`);
+            console.log(`Quantidade: ${produto.quantidade}`);
+            console.log(`Subtotal: R$${(produto.quantidade * produto.preco).toFixed(2)}`);
+            valorTotal += (produto.quantidade * produto.preco);
+        };
+    };
+    const valorDesconto = definirDesconto(valorTotal);
+    const valorFinal = aplicarDesconto(valorTotal, valorDesconto);
+    console.log(`\n- Valor Total: R$${valorTotal.toFixed(2)}`);
+    console.log(`- Desconto: R$${valorDesconto.toFixed(2)}`)
+    console.log(`- Valor Final: R$${valorFinal.toFixed(2)}`);
+};
+
 // finalizar pedido
 botaoFinalizar.addEventListener("click", function() {
-    const valorCarrinho = calcularTotal(produtosCarrinho)
+    const valorCarrinho = calcularTotal(produtosCarrinho);
     if (valorCarrinho === 0) {
-        carrinho.textContent = "Carrinho vazio"
+        carrinho.textContent = "Carrinho vazio";
     } else {
+        mostrarResumo();
         for (let produto of produtosCarrinho) {
             produto.quantidade = 0;
         }
         atualizarCarrinho(produtosCarrinho);
-        carrinho.textContent = "Pedido finalizado!"
-    }
+        carrinho.textContent = "Pedido finalizado!";
+    };
 });
-
-// atualizarCarrinho(produtosCarrinho);
 
 // Função para os botões escreverem na tela do html e mostrarem o produto no console/terminal
 for (let i = 0; i < botoes.length; i++) {
