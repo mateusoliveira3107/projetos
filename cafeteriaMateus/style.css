@@ -1,3 +1,7 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 h1 {
     text-align: center;
     font-size: 34px;
@@ -49,6 +53,8 @@ button {
     height: 30px;
     width: 90px;
     background-color: rgb(175, 89, 20);
+    color: rgb(33, 19, 10);
+    font-weight: bold;
 }
 
 #carrinho {
@@ -60,6 +66,8 @@ button {
     width: 120px;
     height: 32px;
     background-color: rgba(175, 89, 20);
+    color: rgb(33, 19, 10);
+    font-weight: bold;
 }
 
 .botaoAdicionar {
@@ -130,7 +138,6 @@ ul {
     border-radius: 3px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border-width: 3px;
     border-style: solid;
     border-color: rgba(94, 41, 26, 0.419);
 }
@@ -145,7 +152,27 @@ ul {
 
 .resumoTexto {
     font-weight: bold;
-    font-size: 17px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
+}
+
+#fecharResumo {
+    background-color: rgba(237, 112, 10, 0.238);
+    border: 1px solid rgb(92, 48, 28);
+    color: rgb(47, 27, 14);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    width: 120px;
+    height: 35px;
+    margin: 5px;
+    margin-left: 0;
+}
+
+.addRmv {
+    background-color: rgba(210, 164, 0, 0.127);
+    width: 70px;
+    border-radius: 3px;
+    text-align: right;
 }

@@ -11,6 +11,7 @@ bemVindo.textContent = "Seja Bem-Vindo à Cafeteria Mateus!";
 
 // Carrinho
 const carrinho = document.getElementById('carrinho');
+
 // Total
 const total = document.getElementById('total');
 
@@ -25,6 +26,31 @@ const botaoFinalizar = document.getElementById('botaoFinalizar');
 
 // pegal elemento div 'resumo'
 const resumo = document.getElementById('resumo');
+
+let cafe = document.getElementById('addrmvCafeExpresso');
+let capuccino = document.getElementById('addrmvCapuccino');
+let bolo = document.getElementById('addrmvBolo');
+let salgado = document.getElementById('addrmvSalgado');
+
+const inputs = [
+    cafe, capuccino, bolo, salgado
+]
+
+// inputs de adicionar e remover
+function pegarProduto(nomeProduto) {
+    if (nomeProduto === "Café Expresso") {
+        return document.getElementById('addrmvCafeExpresso');
+    };
+    if (nomeProduto === "Capuccino") {
+        return document.getElementById('addrmvCapuccino');
+    };
+    if (nomeProduto === "Bolo") {
+        return document.getElementById('addrmvBolo');
+    };
+    if (nomeProduto === "Salgado") {
+        return document.getElementById('addrmvSalgado');
+    };
+}
 
 // array do carrinho e produtos como objetos
     const produto1 = {
@@ -47,6 +73,7 @@ const produtosCarrinho = [
     produto4
 ];
 
+// TESTES
 // const bolo = produtosCarrinho.find(function(produto) {
 //     return produto.nome === "Bolo";
 // });
@@ -68,7 +95,6 @@ const produtosCarrinho = [
 // console.log(`Preço do salgado: R$${salgado.preco}`);
 // salgado.quantidade += 2;
 // console.log(`Quantidade: ${salgado.quantidade}`);
-
 
 // função para adicionar produtos ao array
 function adicionarProduto(p, qntd) {
@@ -118,7 +144,7 @@ function mostrarCarrinho(produtos) {
     for (let i = 0; i < produtos.length; i++){
         if (produtos[i].quantidade > 0) {
             encontrouProduto = true;
-            
+
             // mostrar no terminal
             console.log(`${produtos[i].nome} x${produtos[i].quantidade}`);
 
@@ -192,7 +218,7 @@ function mostrarResumo() {
             resumo.innerHTML += `<p>Subtotal: R$${produto.quantidade * produto.preco}</p><br>`;
         };
     };
-
+    
     // resumo final no terminal
     const valorDesconto = definirDesconto(valorTotal);
     const valorFinal = aplicarDesconto(valorTotal, valorDesconto);
@@ -204,6 +230,14 @@ function mostrarResumo() {
     resumo.innerHTML += `<p class="resumoTexto">Valor Total: R$${valorTotal.toFixed(2)}</p>`
     resumo.innerHTML += `<p class="resumoTexto">Desconto: R$${valorDesconto.toFixed(2)}</p>`
     resumo.innerHTML += `<p class="resumoTexto">Valor Final: R$${valorFinal.toFixed(2)}</p>`
+    resumo.innerHTML += `<button id="fecharResumo">Fechar Resumo</button>`
+
+    // botao de fechar a div 'resumo'
+    const botaoFecharResumo = document.getElementById('fecharResumo');
+
+    botaoFecharResumo.addEventListener("click", function() {
+        resumo.textContent = "";
+    });
 };
 
 // finalizar pedido
@@ -216,12 +250,15 @@ botaoFinalizar.addEventListener("click", function() {
         resumo.style.padding = "20px";
         resumo.style.paddingTop = "5px";
         resumo.style.paddingBottom = "5px";
-        mostrarResumo();
+        mostrarResumo()
         for (let produto of produtosCarrinho) {
             produto.quantidade = 0;
         }
         atualizarCarrinho(produtosCarrinho);
         carrinho.textContent = "Pedido finalizado!";
+        for (let i of inputs) {
+            i.value = ""
+        };
     };
 });
 
@@ -230,15 +267,19 @@ for (let i = 0; i < botoes.length; i++) {
     botoes[i].addEventListener("click", function() {
         const produto = botoes[i].dataset.produto;
         const acao = this.textContent;
+
+        const inputProduto = pegarProduto(produto);
+        const quantidade = Number(inputProduto.value);
+
         if (acao === "Adicionar") {
-            const resultado = adicionarProduto(produto, 1);
+            const resultado = adicionarProduto(produto, quantidade);
             if (resultado === false) {
                 carrinho.textContent = ("Produto não encontrado");
             } else {
                 atualizarCarrinho(produtosCarrinho);
             }
         } else if (acao === "Remover") {
-            const resultado = removerProduto(produto, 1);
+            const resultado = removerProduto(produto, quantidade);
             if (resultado === false) {
                 carrinho.textContent = (`Quantidade insuficiente de ${produto} no carrinho`);
             } else {
