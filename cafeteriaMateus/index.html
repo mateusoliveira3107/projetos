@@ -53,10 +53,20 @@
         <section class="secaoCarrinho">
             <h2>Seu Carrinho</h2>
             <p id="carrinho">Nenhum Produto Adicionado</p>
-            <p id="total">Total: R$0</p>
+            <p id="total">Total: R$0.00</p>
+
+            <label for="formaPagamento">Forma de Pagamento</label>
+            
+            <select id="formaPagamento">
+                <option value="">Selecione</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Cartão">Cartão</option>
+                <option value="Pix">Pix</option>
+            </select>
 
             <div id="resumo"></div>
 
+            <br>
             <button id="botaoFinalizar">Finalizar Pedido</button>
         </section>
     </main>

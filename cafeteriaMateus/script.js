@@ -27,6 +27,9 @@ const botaoFinalizar = document.getElementById('botaoFinalizar');
 // pegal elemento div 'resumo'
 const resumo = document.getElementById('resumo');
 
+// elemento para o select forma de pagamento
+const formaPagamento = document.getElementById('formaPagamento')
+
 let cafe = document.getElementById('addrmvCafeExpresso');
 let capuccino = document.getElementById('addrmvCapuccino');
 let bolo = document.getElementById('addrmvBolo');
@@ -101,6 +104,7 @@ function adicionarProduto(p, qntd) {
     const produtoEscolhido = produtosCarrinho.find(function(produto) {
         return produto.nome === p;  // Só vai retornar o produto que tiver nome igual ao p (o que a pessoa inseriu na função);
     });
+
     if (produtoEscolhido) {
         produtoEscolhido.quantidade += qntd;
         console.log(`\nVocê adicionou ${p}`);
@@ -213,9 +217,9 @@ function mostrarResumo() {
             console.log(`Subtotal: R$${(produto.quantidade * produto.preco).toFixed(2)}`);
             valorTotal += (produto.quantidade * produto.preco);
 
-            resumo.innerHTML += `<p>${produto.nome}</p>`;
-            resumo.innerHTML += `<p>Quantidade: ${produto.quantidade}</p>`;
-            resumo.innerHTML += `<p>Subtotal: R$${produto.quantidade * produto.preco}</p><br>`;
+            resumo.innerHTML += `<p class="produtos">${produto.nome}</p>`;
+            resumo.innerHTML += `<p class="produtos">Quantidade: ${produto.quantidade}</p>`;
+            resumo.innerHTML += `<p class="produtos">Subtotal: R$${(produto.quantidade * produto.preco).toFixed(2)}</p><br>`;
         };
     };
     
@@ -230,6 +234,7 @@ function mostrarResumo() {
     resumo.innerHTML += `<p class="resumoTexto">Valor Total: R$${valorTotal.toFixed(2)}</p>`
     resumo.innerHTML += `<p class="resumoTexto">Desconto: R$${valorDesconto.toFixed(2)}</p>`
     resumo.innerHTML += `<p class="resumoTexto">Valor Final: R$${valorFinal.toFixed(2)}</p>`
+    resumo.innerHTML += `<p class="resumoTexto">Método de Pagamento: ${formaPagamento.value}`
     resumo.innerHTML += `<button id="fecharResumo">Fechar Resumo</button>`
 
     // botao de fechar a div 'resumo'
@@ -246,18 +251,19 @@ botaoFinalizar.addEventListener("click", function() {
     if (valorCarrinho === 0) {
         carrinho.textContent = "Carrinho vazio";
     } else {
-        resumo.style.backgroundColor = "rgb(149, 110, 87, 0.616)";
-        resumo.style.padding = "20px";
-        resumo.style.paddingTop = "5px";
-        resumo.style.paddingBottom = "5px";
-        mostrarResumo()
-        for (let produto of produtosCarrinho) {
-            produto.quantidade = 0;
-        }
-        atualizarCarrinho(produtosCarrinho);
-        carrinho.textContent = "Pedido finalizado!";
-        for (let i of inputs) {
-            i.value = ""
+        if (formaPagamento.value == "") {
+            console.log("Informe o método de pagamento");
+            resumo.innerHTML += "<p id='informePagamento'>Informe o método de pagamento</p>"
+        } else {
+            mostrarResumo()
+            for (let produto of produtosCarrinho) {
+                produto.quantidade = 0;
+            }
+            atualizarCarrinho(produtosCarrinho);
+            carrinho.textContent = "Pedido finalizado!";
+            for (let i of inputs) {
+                i.value = ""
+            };
         };
     };
 });
@@ -271,22 +277,27 @@ for (let i = 0; i < botoes.length; i++) {
         const inputProduto = pegarProduto(produto);
         const quantidade = Number(inputProduto.value);
 
-        if (acao === "Adicionar") {
-            const resultado = adicionarProduto(produto, quantidade);
-            if (resultado === false) {
-                carrinho.textContent = ("Produto não encontrado");
-            } else {
-                atualizarCarrinho(produtosCarrinho);
-            }
-        } else if (acao === "Remover") {
-            const resultado = removerProduto(produto, quantidade);
-            if (resultado === false) {
-                carrinho.textContent = (`Quantidade insuficiente de ${produto} no carrinho`);
-            } else {
-                atualizarCarrinho(produtosCarrinho);
-            }
+        if (quantidade <= 0) {
+            console.log(`Quantidade inválida`);
+            carrinho.textContent = "Quantidade inválida"
         } else {
-            console.log("Valor Inválido");
+            if (acao === "Adicionar") {
+                const resultado = adicionarProduto(produto, quantidade);
+                if (resultado === false) {
+                    carrinho.textContent = ("Produto não encontrado");
+                } else {
+                    atualizarCarrinho(produtosCarrinho);
+                };
+            } else if (acao === "Remover") {
+                const resultado = removerProduto(produto, quantidade);
+                if (resultado === false) {
+                    carrinho.textContent = (`Quantidade insuficiente de ${produto} no carrinho`);
+                } else {
+                    atualizarCarrinho(produtosCarrinho);
+                };
+            } else {
+                console.log("Valor Inválido");
+            }; 
         }
         
         // carrinho.textContent = produtosCarrinho.join(" | ");

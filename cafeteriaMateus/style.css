@@ -1,24 +1,25 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #f7f3f0;
 }
 
 h1 {
     text-align: center;
     font-size: 34px;
     text-decoration: underline;
-    line-height: 80px;
+    line-height: 1.2;
 }
 
 #subtitulo, #bemVindo {
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
     color: rgba(33, 19, 10, 0.878);
-    line-height: 10px;
+    line-height: 1;
 }
 
 header {
     background-color: rgba(153, 118, 101, 0.845);
-    padding: 1px;
+    padding: 15px;
     border-radius: 4px;
     border-color: rgba(77, 49, 34, 0.746);
     border-style: solid;
@@ -27,18 +28,18 @@ header {
 
 section {
     padding: 14px;
-    padding-top: 2px;
     background-color: rgba(152, 111, 97, 0.645);
     border-radius: 4px;
     border-width: 3px;
     border-style: solid;
     border-color: rgb(77, 49, 34, 0.746);
-    margin-top: 4px;
+    margin-top: 10px;
 }
+
 h2 {
     color: rgba(51, 28, 18, 0.948);
-    font-size: 27px;
-    line-height: 26px;
+    font-size: 24px;
+    line-height: 1.3;
 }
 
 button {
@@ -46,7 +47,9 @@ button {
     padding: 2px;
     height: 25px;
     width: 80px;
+    cursor: pointer;
 }
+
 
 #botaoMudarCor {
     margin: 10px;
@@ -55,11 +58,13 @@ button {
     background-color: rgb(175, 89, 20);
     color: rgb(33, 19, 10);
     font-weight: bold;
+    cursor: pointer;
 }
 
 #carrinho {
     white-space: pre-line;
     font-size: 18px;
+    color: rgb(51, 28, 10);
 }
 
 .botaoLimpar {
@@ -68,6 +73,7 @@ button {
     background-color: rgba(175, 89, 20);
     color: rgb(33, 19, 10);
     font-weight: bold;
+    cursor: pointer;
 }
 
 .botaoAdicionar {
@@ -80,6 +86,9 @@ button {
     border-color: rgba(94, 41, 26, 0.419);
     border-left: none;
     border-top: none;
+    width: 20%;
+    height: 30px;
+    cursor: pointer;
 }
 
 .botaoRemover {
@@ -91,11 +100,15 @@ button {
     border-color: rgba(94, 41, 26, 0.419);
     border-left: none;
     border-top: none;
+    width: 20%;
+    height: 30px;
+    cursor: pointer;
 }
 
 #total {
     font-weight: bold;
     font-size: 17px;
+    color: rgb(51, 28, 10);
 }
 
 #botaoFinalizar {
@@ -108,13 +121,14 @@ button {
     background-color: rgb(245, 168, 36);
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .linhaSeparacao {
     background-color: rgb(114, 82, 65);
     border: none;
     height: 2px;
-    margin-top: 1px;
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
@@ -122,17 +136,21 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px;
+    padding: 9px;
     margin-bottom: 5px;
     background-color: rgba(149, 110, 87, 0.616);
     border-radius: 8px;
 } 
+
+span {
+    color: rgb(51, 28, 10);
+}
+
 ul {
     padding: 0;
 }
 
 #resumo {
-    line-height: 1px;
     width: 300px;
     font-size: 18px;
     border-radius: 3px;
@@ -140,13 +158,22 @@ ul {
     margin-bottom: 20px;
     border-style: solid;
     border-color: rgba(94, 41, 26, 0.419);
+    background-color: rgb(149, 110, 87, 0.616);
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.produtos {
+    color: rgb(51, 28, 10);
+    line-height: 3px;
 }
 
 .resumoPedido {
     font-size: 20px;
-    color: rgba(51, 28, 18, 0.961);
-    padding-bottom: 15px;
-    margin-top: 20px;
+    color: rgb(51, 28, 10);
+    padding-bottom: 10px;
+    margin-top: 10px;
     text-decoration: underline;
 }
 
@@ -154,25 +181,62 @@ ul {
     font-weight: bold;
     font-size: 16px;
     display: flex;
+    color: rgb(51, 28, 10);
     justify-content: space-between;
 }
 
 #fecharResumo {
     background-color: rgba(237, 112, 10, 0.238);
     border: 1px solid rgb(92, 48, 28);
-    color: rgb(47, 27, 14);
+    color: rgb(51, 28, 10);
     border-radius: 4px;
     font-weight: bold;
     font-size: 14px;
     width: 120px;
     height: 35px;
     margin: 5px;
+    margin-top: 10px;
     margin-left: 0;
+    cursor: pointer;
 }
 
 .addRmv {
-    background-color: rgba(210, 164, 0, 0.127);
-    width: 70px;
+    background-color: rgba(242, 233, 228, 0.3);
+    height: 23px;
     border-radius: 3px;
     text-align: right;
+    width: 15%;
+    border-width: 2px;
+    border-color: rgba(110, 61, 28, 0.505);
+    border-style: solid;
+}
+
+label {
+    font-size: 18px;
+    color: rgb(51, 28, 10);
+}
+
+select {
+    background-color: rgba(253, 168, 71, 0.335);
+    height: 30px;
+    width: 160px;
+    text-align: center;
+    border-radius: 2px;
+    border: solid 2px rgb(117, 67, 21);
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+option {
+    background-color: rgba(215, 161, 141, 0.437);
+    font-weight: bold;
+}
+
+#informePagamento {
+    font-size: 20px;
+    color: red;
+    height: 0;
+    padding-bottom: 20px;
 }
