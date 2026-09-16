@@ -7,9 +7,17 @@ O projeto está sendo desenvolvido de forma gradual, adicionando novas funcional
 ## Funcionalidades
 
 * Exibição dos produtos
-* Botões para adicionar produtos ao carrinho
+* Adicionar produtos ao carrinho
+* Remover produtos do carrinho
+* Escolha da quantidade de produtos
+* Cálculo do subtotal dos produtos
+* Cálculo do valor total da compra
+* Aplicação de descontos
 * Carrinho de compras
-* Armazenamento dos produtos em um array
+* Limpar carrinho
+* Finalização do pedido
+* Exibição do resumo da compra
+* Escolha do método de pagamento
 * Alteração do conteúdo da página com JavaScript
 * Alteração da cor do título
 
@@ -27,11 +35,18 @@ O projeto está sendo desenvolvido de forma gradual, adicionando novas funcional
 * `addEventListener()`
 * `dataset`
 * Arrays
-* `push()`
-* `join()`
+* Objetos
+* `find()`
 * `for`
-* `textContent`
+* `for...of`
+* `if / else`
 * Funções
+* Parâmetros
+* `return`
+* `textContent`
+* `innerHTML`
+* `toFixed()`
+* `Number()`
 
 ## Como executar
 
@@ -41,7 +56,8 @@ O projeto está sendo desenvolvido de forma gradual, adicionando novas funcional
 
 ## Próximos passos
 
-* Melhorar a interface
-* Criar formulário para finalizar o pedido
+
 * Adicionar navegação entre páginas
+* Adicionar formas de pagamento com troco
+* Salvar pedidos
 * Integrar com banco de dados futuramente
