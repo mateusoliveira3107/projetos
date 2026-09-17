@@ -4,12 +4,15 @@ body {
 }
 
 header {
+    border: solid 4px rgb(10, 26, 96);
+    border-radius: 0px 0px 15px 15px;
     background: linear-gradient(to right, rgb(43, 43, 243), rgb(48, 139, 209), rgb(85, 149, 245));
     align-items: center;
 }
 
 main {
     text-align: center;
+    margin-top: 15px;
 }
 
 h1 {
@@ -21,17 +24,33 @@ h1 {
 }
 
 input {
-    height: 25px;
-    font-size: 16px;
-    border: solid 0.5px rgb(106, 126, 156);
+    height: 40px;
+    font-size: 15px;
+    border: solid 1px rgb(176, 199, 234);
     margin: 10px;
+    border-radius: 10px;
+    padding-left: 5px;
 }
 
-button {
-    height: 30px;
+#buscar {
+    height: 44px;
     width: 80px;
-    font-size: 16px;
-    border: solid 0.5px rgb(106, 126, 156);
+    font-size: 15px;
+    border: solid 1px rgb(176, 199, 234);
+    background-color: rgb(37, 99, 235);
+    color: white;
+    border-radius: 10px;
+    margin-left: -40px;
+}
+
+#localizacao {
+    height: 44px;
+    width: 240px;
+    font-size: 15px;
+    border: solid 1px rgb(176, 199, 234);
+    background-color: rgb(37, 99, 235);
+    color: white;
+    border-radius: 10px;
 }
 
 #clima {
@@ -44,7 +63,7 @@ button {
 
 h2 {
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 12px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
