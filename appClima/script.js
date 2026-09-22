@@ -50,12 +50,16 @@ localizacao.addEventListener("click", function() {
         const respostaLocal = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json&accept-language=pt-BR`);
         const dadosLocal = await respostaLocal.json();
         console.log(dadosLocal);
-
+    
+        const cidade = dadosLocal.address.city;
+        const pais = dadosLocal.address.country;
         const temperatura = dadosClima.current.temperature_2m;
         const umidade = dadosClima.current.relative_humidity_2m;
         const vento = dadosClima.current.wind_speed_10m;
 
-        resultado.innerHTML = `<p>Temperatura: ${temperatura} °C</p>`
+        resultado.innerHTML = `<h2 id="clima">Clima de ${cidade}</h2>`
+        resultado.innerHTML += `<p>País: ${pais}</p>`
+        resultado.innerHTML += `<p>Temperatura: ${temperatura} °C</p>`
         resultado.innerHTML += `<p>Umidade: ${umidade} %</p>`
         resultado.innerHTML += `<p>Vento: ${vento} km/h</p>`
     });
