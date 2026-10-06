@@ -1,6 +1,7 @@
 body {
     background-color: rgba(169, 195, 246, 0.479);
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0 20% 0 20%;
 }
 
 header {
