@@ -27,10 +27,18 @@ app.listen(4000, function() {
     console.log("API de equipamentos iniciada!")
 });
 
-app.get("/equipamentos/1", function(req, res) {
-    res.json(equipamentos.find(function(r) {
-        return r.codigo === 1;
-    }));
+app.get("/equipamentos/:codigo", function(req, res) {
+    const codigo = Number(req.params.codigo);
+    const equipamento = equipamentos.find(function(r) {
+        return r.codigo === codigo;
+    });
+    if (!equipamento) {
+        return res.status(404).json({
+            mensagem: "Equipamento não encontrado"
+        })
+    }
+
+    res.json(equipamento);
 });
 // app.get("/equipamentos", function(req, res) {
 //     res.json(equipamentos)
